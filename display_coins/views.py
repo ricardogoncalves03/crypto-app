@@ -1,12 +1,23 @@
-from django.shortcuts import render
-from django.views.generic import TemplateView
+from django.views.generic import ListView
+from display_coins.models import Coin
 
-from display_coins.services import get_coins
+from .services import get_coins
 
 
-class GetCoinsView(TemplateView):
-    template_name = "coins.html"
+class GetCoinsView(ListView):
+    model = Coin
+    template_name = "home.html"
 
+    def get_context_data(self, *args, **kwargs):
+        context = {
+            'coins': get_coins(),
+        }
+        return context
+
+class TestView(ListView):
+    model = Coin
+    template_name = "test_forms.html"
+    
     def get_context_data(self, *args, **kwargs):
         context = {
             'coins': get_coins(),
