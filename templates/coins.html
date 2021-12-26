@@ -1,4 +1,47 @@
-<div class=cointainer>
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class='container has-text-centered'>
+        <div class='columns is-mobile is-centered'>
+            <table class="table is-hoverable ">
+                <thead>
+                    <tr class="has-text-centered">
+                        <th scope='col'>Logo</th>
+                        <th scope='col'>Name</th>
+                        <th scope='col'>Rank</th>
+                        <th scope='col'>Market Cap</th>
+                        <th scope='col'>Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% if coins %}
+                        {% for i in coins %}
+                            <tr class="has-text-centered">
+                                <td>
+                                    <figure class="image is-32x32">
+                                        <img src="{{i.image}}">
+                                    </figure>
+                                </td>
+                                <td>{{i.name}}</td>
+                                <td>{{i.market_cap_rank}}</td>
+                                <td>{{i.market_cap}}</td>
+                                <td>{{i.current_price}}</td>
+                            </tr>
+                        {% endfor %}
+                    {% else %}
+                    <h2>No data available to display</h2>
+                    {% endif %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock content %}
+
+
+
+
+
+
 {% for obj in coins %}
     <p>
         <img src={{obj.image}} height='70'>
