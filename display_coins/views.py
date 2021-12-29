@@ -1,4 +1,3 @@
-from django.urls import reverse, reverse_lazy
 from django.views.generic import ListView, DetailView, CreateView
 from display_coins.models import Coin
 from django.shortcuts import redirect
@@ -39,3 +38,8 @@ class DisplayCoinsCreateView(CreateView):
                     market_cap=coin['market_cap']
                 )
                 return redirect('home')
+
+
+class DisplayCoinsUserListView(ListView):
+    model = Coin
+    template_name = 'coin_user_list.html'

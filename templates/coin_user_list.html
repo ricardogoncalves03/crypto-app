@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    
+        <div>
+            <br></br>
+            <div class>
+                <table class="table is-bordered">
+                    <thead>
+                        <tr class="has-text-centered">
+                            <th scope='col'>Rank</th>
+                            <th scope='col'>Logo</th>
+                            <th scope='col'>Name</th>
+                            <th scope='col'>Price</th>
+                            <th scope='col'>Mkt Cap</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for coin in object_list %}
+                            <tr class="has-text-centered">
+                                <td>{{coin.rank}}</td>
+                                <td>
+                                    <figure class="image is-32x32">
+                                        <img src="{{coin.logo}}"> 
+                                    </figure>
+                            </td>
+                                <td style="font-weight:bold">{{coin.name}}</td>
+                                <td>${{coin.price}}</td>
+                                <td>${{coin.market_cap}}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+{% endblock content %}
