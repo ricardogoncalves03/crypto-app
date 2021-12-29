@@ -1,21 +1,25 @@
-from django import forms
 from django.urls import reverse, reverse_lazy
-from django.views.generic import ListView, CreateView
+from django.views.generic import ListView, DetailView, CreateView
 from display_coins.models import Coin
-from django.shortcuts import get_object_or_404, redirect
+from django.shortcuts import redirect
 
 from .services import get_coins
 
 
 class DisplayCoinsView(ListView):
     model = Coin
-    template_name = "home.html"
+    template_name = 'home.html'
 
     def get_context_data(self, *args, **kwargs):
         context = {
             'coins': get_coins(),
         }
         return context
+
+
+class DisplayCoinsDetailView(DetailView):
+    model = Coin
+    template_name = 'coin_detail.html'
 
 
 class DisplayCoinsCreateView(CreateView):
