@@ -1,3 +1,4 @@
+from django.urls import reverse
 from django.views.generic import ListView, DetailView, CreateView
 from display_coins.models import Coin
 from django.shortcuts import redirect
@@ -37,7 +38,7 @@ class DisplayCoinsCreateView(CreateView):
                     price=coin['current_price'],
                     market_cap=coin['market_cap']
                 )
-                return redirect('home')
+                return redirect('coin_user_list')
 
 
 class DisplayCoinsUserListView(ListView):
