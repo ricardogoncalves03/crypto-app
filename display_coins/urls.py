@@ -1,9 +1,9 @@
 from django.urls import path
 
-from display_coins.views import GetCoinsView, TestView
+from display_coins.views import DisplayCoinsView, DisplayCoinsCreateView
 
 
 urlpatterns = [
-    path('', GetCoinsView.as_view(), name='coins view'),
-    path('test/', TestView.as_view(), name='test_forms')
+    path('', DisplayCoinsView.as_view(), name='home'),
+    path('new/', DisplayCoinsCreateView.as_view(), name='coin_new')
 ]
