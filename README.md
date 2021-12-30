@@ -1,4 +1,4 @@
-# Django-skeleton
+# Django Crypto App
 
 Project for learning Django Web Development using [coingecko API](https://www.coingecko.com/en/api/documentation)
 
